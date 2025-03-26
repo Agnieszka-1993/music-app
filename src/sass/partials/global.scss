@@ -1,0 +1,12 @@
+@use 'variables';
+
+body {
+    margin: 0;
+    background: variables.$color-three;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 30px;
+    line-height: 27px;
+    font-weight: variables.$font-regular;
+    color: variables.$color-two;
+    text-align: center;
+}
