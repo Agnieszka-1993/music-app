@@ -1,0 +1,170 @@
+@use 'variables';
+
+.container-hr {
+  background-image: url("../../images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1297px;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: variables.$color-one;
+    font-style: normal;
+    line-height: normal;
+
+    .logo-title {
+      text-shadow: 0 0 118px rgba(0, 0, 0, 0.39);
+      font-size: 200px;
+      font-weight: variables.$font-bold;
+      letter-spacing: 120px;
+    }
+
+    .logo-subtitle {
+      font-size: 36px;
+      line-height: 48px;
+      letter-spacing: 10.8px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: -1%;
+    content: '';
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgb(0, 0, 0, 0));
+  }
+}
+
+.navigation {
+  padding: 66px;
+  font-size: 30px;
+  line-height: 27px;
+  font-style: normal;
+  letter-spacing: normal;
+
+  a {
+    text-decoration: none;
+    color: variables.$color-two;
+    letter-spacing: 2.25px;
+    padding: 60px;
+
+    &:hover {
+      color: variables.$color-one;
+    }
+
+    &.active {
+      color: variables.$color-four;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .container-hr {
+    max-height: 650px;
+
+    .logo {
+      .logo-title {
+        font-size: 100px;
+        letter-spacing: 30px;
+
+      }
+
+      .logo-subtitle {
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: 8px;
+      }
+    }
+  }
+
+  .navigation {
+    padding: 45px;
+    font-size: 40px;
+
+    a {
+      padding: 20px;
+
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container-hr {
+    max-height: 650px;
+
+    .logo {
+      .logo-title {
+        font-size: 100px;
+        letter-spacing: 30px;
+
+      }
+
+      .logo-subtitle {
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: 8px;
+      }
+    }
+  }
+
+  .navigation {
+    padding: 45px;
+    font-size: 40px;
+
+    a {
+      padding: 20px;
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container-hr {
+    max-height: 450px;
+
+    .logo {
+      .logo-title {
+        font-size: 50px;
+        letter-spacing: 10px;
+
+      }
+
+      .logo-subtitle {
+        font-size: 20px;
+        line-height: 36px;
+        letter-spacing: 5px;
+      }
+    }
+  }
+
+  .navigation {
+    padding: 30px;
+    font-size: 30px;
+    width: fit-content;
+    margin: 0 auto;
+
+    a {
+      display: block;
+      padding: 10px;
+
+    }
+  }
+
+}

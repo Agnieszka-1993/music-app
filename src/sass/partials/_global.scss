@@ -1,0 +1,33 @@
+@use 'variables';
+
+body {
+  margin: 0;
+  background: variables.$color-three;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 30px;
+  line-height: 27px;
+  font-weight: variables.$font-regular;
+  color: variables.$color-two;
+  text-align: center;
+}
+
+.container {
+  max-width: 643px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#pages {
+  >* {
+    display: none;
+  }
+
+  >.active {
+    display: block;
+  }
+}
+
+.green-audio-player .slider .gap-progress .pin {
+  background-color: variables.$color-four;
+}
+

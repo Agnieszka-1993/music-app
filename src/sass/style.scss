@@ -3,5 +3,9 @@
 @use 'partials/normalize';
 @use 'partials/typography';
 @use 'partials/variables';
+@use 'partials/home';
 @use 'partials/global';
 @use 'partials/header.scss';
+@use 'partials/footer';
+@use 'partials/songList';
+@use 'partials/categories';

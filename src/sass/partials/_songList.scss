@@ -1,0 +1,98 @@
+@use 'variables';
+
+.song-list {
+  .hiden{
+    display: none;
+  }
+
+  .songs{
+    .songs-header {
+      color: variables.$color-one;
+      font-style: normal;
+      text-align: left;
+      margin: 41px 30px 30px 30px;
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .song-info {
+      flex: 4 1 0px;
+      align-self: center;
+
+      .song-author {
+        letter-spacing: 2.25px;
+        line-height: normal;
+
+      }
+
+      .song-title {
+        letter-spacing: 2.25px;
+        line-height: normal;
+        font-style: italic;
+      }
+    }
+  }
+
+  .player-wrapper {
+    margin: 13px;
+    padding: 10px;
+
+    .player {
+      width: 100%;
+    }
+  }
+
+  .after-player {
+    display: flex;
+    justify-content: space-around;
+    color: variables.$color-two;
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 1.5px;
+    padding: 13px;
+    text-transform: capitalize;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .song-list {
+    .songs {
+      .song-title {
+        white-space: nowrap;
+      }
+
+
+      .after-player {
+        flex-direction: column;
+        text-align: center;
+        font-size: 15px;
+        padding: 5px;
+
+        .categories,
+        .ranking {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .song-list {
+    .songs {
+      .song-header {
+        font-size: 22px;
+        flex-direction: column;
+        text-align: center;
+        margin: 41px 30px 15px 30px;
+      }
+
+      .song-cover {
+        margin: 0 auto;
+        height: 120px;
+      }
+    }
+  }
+}

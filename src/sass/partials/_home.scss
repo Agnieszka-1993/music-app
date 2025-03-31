@@ -1,0 +1,273 @@
+@use 'variables';
+
+#home .sub {
+
+  margin-top: 151px;
+
+  .sub-background {
+    background-image: url("../../images/subscribe.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 1023px;
+    position: relative;
+    text-align: left;
+    letter-spacing: 20px;
+    line-height: normal;
+    color: variables.$color-one;
+    font-size: 100px;
+    font-style: normal;
+
+    .sub-title {
+      font-size: 100px;
+      //width: 1800px;
+      letter-spacing: 20px;
+      font-weight: variables.$font-semibold;
+      position: absolute;
+      margin: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+
+
+      span {
+        font-weight: variables.$font-black;
+      }
+
+    }
+
+    .artist {
+      box-shadow: 0 0 118px 24px rgba(0, 0, 0, 0.39);
+      position: absolute;
+      left: 70%;
+      top: 43%;
+      transform: translate(-50%, -50%);
+      width: 465px;
+      height: 578px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .artist-name {
+      text-shadow: 0 0 118px rgba(0, 0, 0, 0.11);
+      font-size: 100px;
+      position: absolute;
+      left: -8%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+
+      span {
+        color: variables.$color-four;
+      }
+    }
+
+    .album-text {
+      text-align: right;
+      letter-spacing: 8px;
+      position: absolute;
+      left: 65%;
+      top: 81%;
+      transform: translate(-50%, -50%);
+      line-height: 0.4; // nie ma tego w psd - ale inaczej jest za dua interlinia
+
+      .album-text-title {
+        font-size: 40px;
+        color: #bfbfbf;
+        font-weight: variables.$font-bold;
+
+      }
+
+      .album-text-subtitle {
+        font-size: 40px;
+        font-weight: variables.$font-semibold;
+        white-space: nowrap;
+      }
+    }
+
+    .call-to-action {
+      position: absolute;
+      left: 25%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+
+      .button {
+        box-shadow: 0 0 118px 24px rgba(0, 0, 0, 0.11);
+        background-color: variables.$color-four;
+        text-align: center;
+        font-weight: variables.$font-bold;
+        border-radius: 10px;
+      }
+
+      a {
+        line-height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 313px;
+        height: 133px;
+        text-decoration: none;
+        letter-spacing: 8px;
+        font-size: 40px;
+        color: variables.$color-one;
+        position: relative;
+
+      }
+
+    }
+
+
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1350px) {
+  .sub {
+    .sub-background {
+      letter-spacing: 15px;
+
+      .sub-title {
+        font-size: 72px;
+        letter-spacing: 15px;
+      }
+
+      .artist{
+        width: 350px;
+        height: 437px;
+
+      }
+
+      .artist-name {
+        font-size: 72px;
+
+      }
+
+      .album-text {
+        .album-text-title {
+          font-size: 30px;
+        }
+
+        .album-text-subtitle {
+          font-size: 30px;
+
+        }
+      }
+
+      .call-to-action {
+        left: 23%;
+
+        a {
+          font-size: 30px;
+          width: 250px;
+          height: 106px;
+        }
+
+      }
+
+
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sub {
+    .sub-background {
+      letter-spacing: 10px;
+
+      .sub-title {
+        font-size: 52px;
+        letter-spacing: 10px;
+      }
+
+      .artist {
+        width: 300px;
+        height: 375px;
+      }
+
+      .artist-name {
+        font-size: 52px;
+
+      }
+
+      .album-text {
+        .album-text-title {
+          font-size: 20px;
+        }
+
+        .album-text-subtitle {
+          font-size: 20px;
+
+        }
+      }
+
+      .call-to-action {
+        a {
+          font-size: 25px;
+          width: 200px;
+          height: 85px;
+        }
+
+      }
+
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sub {
+    .sub-background {
+      min-height: 500px;
+      letter-spacing: 5px;
+      display: flex;
+
+      .sub-title {
+        font-size: 30px;
+        letter-spacing: 5px;
+      }
+
+      .artist {
+        width: 160px;
+        height: 200px;
+      }
+
+      .artist-name {
+        font-size: 30px;
+
+      }
+
+      .album-text {
+        left: 75%;
+        top: 90%;
+
+        .album-text-title {
+          font-size: 15px;
+        }
+
+        .album-text-subtitle {
+          font-size: 15px;
+          white-space: normal;
+          line-height: normal;
+
+
+        }
+      }
+
+      .call-to-action {
+        left: 27%;
+        top: 70%;
+
+        a {
+          letter-spacing: 5px;
+          font-size: 15px;
+          width: 120px;
+          height: 50px;
+        }
+
+      }
+
+
+    }
+  }
+}
