@@ -17,7 +17,7 @@ class AudioPlayer {
   initPluging() {
     const thisAudioPlayer = this;
 
-    thisAudioPlayer.greenAudioPlayer = new this.greenAudioPlayer(thisAudioPlayer.playerId, {
+    thisAudioPlayer.greenAudioPlayer = new GreenAudioPlayer(thisAudioPlayer.playerId, {
       stopOthersOnPlay: true,
     });
   }

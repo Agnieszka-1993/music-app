@@ -17,8 +17,9 @@ const app = {
       })
       .then(function (parsedResponse){
         thisApp.data.songs = parsedResponse;
-        thisApp.initAudio();
+
         thisApp.initCategories();
+        thisApp.initAudio();
         thisApp.initStats();
       });
   },
@@ -111,6 +112,7 @@ const app = {
     thisApp.categoriesContainer = document.querySelector(select.containerOf.categories);
 
     thisApp.categories = new Categories(thisApp.categoriesContainer, thisApp.categoriesbject, thisApp.data, app);
+    console.log('categoru',thisApp.categories)
   },
 
   initStats() {
