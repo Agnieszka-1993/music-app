@@ -1,6 +1,6 @@
 @use 'variables';
 
-#home .sub {
+.sub {
 
   margin-top: 151px;
 
@@ -46,8 +46,8 @@
       height: 578px;
 
       img {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
       }
     }
 
@@ -132,7 +132,7 @@
         letter-spacing: 15px;
       }
 
-      .artist{
+      .artist-cover {
         width: 350px;
         height: 437px;
 
@@ -180,7 +180,7 @@
         letter-spacing: 10px;
       }
 
-      .artist {
+      .artist-cover {
         width: 300px;
         height: 375px;
       }
@@ -227,7 +227,7 @@
         letter-spacing: 5px;
       }
 
-      .artist {
+      .artist-cover {
         width: 160px;
         height: 200px;
       }

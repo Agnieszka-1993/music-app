@@ -11,6 +11,15 @@ body {
   text-align: center;
 }
 
+.categories-wrapper {
+  display: block;
+  padding: 20px;
+}
+
+.category-item {
+  margin: 5px;
+}
+
 .container {
   max-width: 643px;
   margin: 0 auto;

@@ -57,24 +57,39 @@ class Categories {
 
   filterSongs(category) {
     const thisCategories = this;
+    console.log('🔎 Aktywna kategoria:', category);
 
-    if (category == null) {
-      for (const hiddenSong of thisCategories.hiddenSongs) {
-        const hiddenSongFinder = document.querySelector('#home .song-' + hiddenSong.id);
-        hiddenSongFinder.classList.remove('hidden');
-      }
-    } else {
-      for (let song of thisCategories.data.songs) {
-        const songFinder = document.querySelector('#home .song-' + song.id);
-        if (!song.categories.includes(category)) {
-          songFinder.classList.add('hidden');
-          thisCategories.hiddenSongs.push(song);
-        } else if (song.categories.includes(category)) {
-          songFinder.classList.remove('hidden');
-          thisCategories.hiddenSongs.splice(thisCategories.hiddenSongs[song], 1);
-        }
-      }
+    const songElements = document.querySelectorAll('#home .songs');
+
+    // Jeśli nie ma aktywnej kategorii → pokaż wszystkie piosenki
+    if (!category) {
+      console.log('✅ Resetowanie listy piosenek...');
+      songElements.forEach(song => song.classList.remove('hidden'));
+      return;
     }
+
+    thisCategories.hiddenSongs = [];
+
+    songElements.forEach(songElement => {
+      const songId = parseInt(songElement.dataset.id); // Pobieramy ID z dataset
+      const song = thisCategories.data.songs.find(s => s.id === songId);
+
+      if (!song) {
+        console.error(`🚨 Piosenka z ID ${songId} nie istnieje w danych`);
+        return;
+      }
+
+      if (!song.categories.includes(category)) {
+        console.log(`❌ Ukrywam: ${song.title}`);
+        songElement.classList.add('hidden');
+        thisCategories.hiddenSongs.push(song);
+      } else {
+        console.log(`✅ Widoczna: ${song.title}`);
+        songElement.classList.remove('hidden');
+      }
+    });
+
+    console.log('🎵 Ukryte piosenki:', thisCategories.hiddenSongs.length);
   }
 }
 

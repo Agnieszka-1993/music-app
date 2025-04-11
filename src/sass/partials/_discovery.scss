@@ -1,0 +1,67 @@
+@use 'variables';
+
+.discover {
+  .discover-header {
+    padding: 100px 0 0 0;
+
+    .discover-title {
+      font-size: 60px;
+      letter-spacing: 12px;
+      padding: 0 0 50px 0;
+    }
+
+    .discover-subtitle {
+      width: fit-content;
+      margin: auto;
+      color: variables.$color-one;
+      letter-spacing: 6px;
+      font-size: 30px;
+      padding: 50px 20px 50px 20px;
+      cursor: pointer;
+      box-shadow: 0 0 0 0 variables.$color-four;
+      transform: scale(1);
+      animation: pulse 2s infinite;
+
+      &:hover {
+        color: variables.$color-four;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .discover {
+    .discover-header {
+      padding: 30px 0 0 0;
+
+      .discover-title {
+        font-size: 45px;
+        padding: 0 0 30px 0;
+      }
+
+      .discover-subtitle {
+        padding: 30px 10px 30px 10px;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 variables.$color-four(75, 72, 72, 0.7);
+  }
+
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px variables.$color-four;
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 variables.$color-four;
+  }
+}

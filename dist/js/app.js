@@ -3,6 +3,8 @@ import Home from './components/Home.js';
 import Categories from './components/Categories.js';
 import Audio from './components/Audio.js';
 import Stats from './components/Stats.js';
+import Search from './components/Search.js';
+import Discovery from './components/Discovery.js';
 
 const app = {
   initData: function() {
@@ -11,17 +13,57 @@ const app = {
     thisApp.data = {};
     const url= settings.db.url + '/' + settings.db.songs;
 
+    thisApp.loader();
+    thisApp.displayLoader();
+
     fetch(url)
       .then(function (rawResonse){
         return rawResonse.json();
       })
       .then(function (parsedResponse){
         thisApp.data.songs = parsedResponse;
-
-        thisApp.initCategories();
+        thisApp.removeLoader();
         thisApp.initAudio();
+        thisApp.initCategories();
         thisApp.initStats();
+        thisApp.initDiscovert();
+        thisApp.initSearch();
       });
+  },
+
+  loader: function () {
+    const thisApp = this;
+
+    const loader = document.querySelector('.preload');
+
+    thisApp.displayLoader = function () {
+      loader.classList.add('display');
+    };
+
+    thisApp.removeLoader = function () {
+      loader.classList.remove('display');
+    };
+  },
+
+  initDiscovert: function() {
+    const thisApp = this;
+
+    thisApp.discoveryConteiner = document.querySelector(select.containerOf.discovery);
+
+    thisApp.discovery = new Discovery(thisApp.discoveryConteiner, thisApp.data.songs, thisApp, app);
+  },
+
+  initSearch: function() {
+    const thisApp = this;
+
+    thisApp.searchConteiner = document.querySelector(select.containerOf.search);
+
+    if (!thisApp.data.songs || !Array.isArray(thisApp.data.songs)) {
+      console.error('Error: `data.songs` We don\'t see.');
+      return;
+    }
+
+    thisApp.search = new Search(thisApp.searchConteiner, thisApp.data.songs, thisApp.categoriesObject);
   },
 
   initAudio: function() {
@@ -101,8 +143,8 @@ const app = {
   initCategories: function () {
     const thisApp = this;
     const songCategories = new Set();
-    for (let song in thisApp.data.songs) {
-      for (let category of thisApp.data.songs[song].categories) {
+    for (let song of thisApp.data.songs) {
+      for (let category of song.categories) {
         songCategories.add(category);
       }
     }
@@ -111,8 +153,7 @@ const app = {
 
     thisApp.categoriesContainer = document.querySelector(select.containerOf.categories);
 
-    thisApp.categories = new Categories(thisApp.categoriesContainer, thisApp.categoriesbject, thisApp.data, app);
-    console.log('categoru',thisApp.categories)
+    thisApp.categories = new Categories(thisApp.categoriesContainer, thisApp.categoriesObject, thisApp.data, app);
   },
 
   initStats() {
@@ -126,6 +167,7 @@ const app = {
     for (let i = 0; i < players.length; i++) {
       // eslint-disable-next-line no-undef
       GreenAudioPlayer.pausePlayer(players[i]);
+
     }
   },
 

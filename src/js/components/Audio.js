@@ -1,3 +1,4 @@
+
 import { templates } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
 import utils from '../utils.js';
@@ -29,11 +30,7 @@ class Audio {
     const thisAudio = this;
 
     thisAudio.greenAudioPlayer = new AudioPlayer(thisAudio.wrapper, thisAudio.data.id);
-    console.log(thisAudio.greenAudioPlayer.playerId)
-    thisAudio.player = document.querySelector(thisAudio.greenAudioPlayer.playerId + 'audio');
-    thisAudio.player.addEventListener('play',function(){
-      thisAudio.lastPlayedSong = thisAudio.greenAudioPlayer.playerId.slice(-1);
-    });
+
   }
 }
 
